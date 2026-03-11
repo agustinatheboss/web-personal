@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfil profesional de Agustina Bossero, Técnica en Desarrollo de Software y estudiante de Antropología. Especialista en Python, SQL y soluciones integrales.">
+    <meta name="keywords" content="Agustina Bossero, Software Developer, Python, SQL, Oracle, Antropología, Desarrollo de Software Argentina">
+    <link rel="canonical" href="https://agustinabossero.com.ar">
+    <title>Agustina Bossero | Software Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #161616;
+            --text: #ededed;
+            --accent: #3b82f6; 
+            --secondary: #a1a1aa;
+            --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --surface: #f4f4f5;
+            --text: #09090b;
+            --accent: #2563eb;
+            --secondary: #71717a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.4s ease;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        #cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            border: 1px solid var(--secondary);
+            background: transparent;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .hero span {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -3px;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--secondary);
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(240px, auto);
+            gap: 1.5rem;
+            margin: 5rem 0 10rem 0;
+        }
+
+        .bento-item {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .bento-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.04);
+        }
+
+        .bento-item h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: 0.75rem; 
+            letter-spacing: -0.5px;
+        }
+
+        .bento-item p { 
+            color: var(--secondary); 
+            font-size: 0.95rem; 
+            line-height: 1.6;
+        }
+
+        .large { grid-column: span 2; }
+        .tall { grid-row: span 2; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            padding: 6rem 0;
+            border-top: 1px solid var(--surface);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .footer-info h2 { font-size: 2.5rem; letter-spacing: -1px; margin-top: 0.5rem; }
+        .footer-info p { color: var(--secondary); text-transform: uppercase; font-size: 0.8rem; font-weight: 700; }
+
+        .cta-group { display: flex; gap: 1rem; }
+
+        .cta-button {
+            background: var(--text);
+            color: var(--bg);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .cta-button.outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--secondary);
+        }
+
+        .cta-button:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 850px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .large, .tall { grid-column: span 1; grid-row: span 1; }
+            .hero h1 { font-size: 3rem; }
+            footer { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cursor-dot"></div>
+
+    <div class="wrapper">
+        <nav>
+            <div class="logo">ABOSS.dev</div>
+            <button class="theme-toggle" id="themeBtn" title="Cambiar visión">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </button>
+        </nav>
+
+        <main>
+            <section class="hero">
+                <span class="reveal">Técnica en Desarrollo de Software</span>
+                <h1 class="reveal">Soluciones Lógicas,<br>Mirada Antropológica.</h1>
+                <p class="reveal">Hola, soy Agustina Bossero. Entiendo el software como un sistema complejo que conecta datos, lógica y el comportamiento humano.</p>
+            </section>
+
+            <div class="bento-grid">
+                <div class="bento-item large reveal">
+                    <h3>Desarrollo & Scripting</h3>
+                    <p>Base sólida de <strong>Python y Java</strong>. Desarrollo automatizaciones y scripts para optimizar procesos, además de crear interfaces funcionales con <strong>Streamlit</strong>. Flexibilidad probada para saltar entre tecnologías según el desafío.</p>
+                </div>
+
+                <div class="bento-item tall reveal">
+                    <h3>Tecnología & Sociedad</h3>
+                    <p>Como estudiante de <strong>Antropología (UBA)</strong>, aporto una mirada crítica analizando la intersección entre política, redes sociales y comportamiento humano. Código con conciencia sociológica.</p>
+                </div>
+
+                <div class="bento-item reveal">
+                    <h3>Data Mastery</h3>
+                    <p>Experiencia en <strong>SQL</strong> (Oracle, MySQL, MongoDB). Capacidad para mantener sistemas legados (Oracle Forms 6i) y realizar tuning de consultas críticas.</p>
+                </div>
+
+                <div class="bento-item reveal">
+                    <h3>Claridad Técnica</h3>
+                    <p>Documentación profesional de procesos y modelos de datos. Porque un sistema solo es tan bueno como la claridad con la que se explica.</p>
+                </div>
+
+                <div class="bento-item large reveal">
+                    <h3>Fuera de la terminal</h3>
+                    <p>
+                        Exploro la vida como un sistema interdisciplinario: desde el ritmo de la <strong>Salsa</strong> hasta saberes tradicionales como la <strong>agroecología</strong>, el tejido y los alimentos fermentados. Creo que la curiosidad constante nos hace mejores profesionales.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="reveal">
+            <div class="footer-info">
+                <p>¿Hablamos?</p>
+                <h2>Construyamos algo sólido.</h2>
+            </div>
+            <div class="cta-group">
+                <a href="TU_LINK_DE_LINKEDIN" target="_blank" rel="noopener noreferrer" class="cta-button">LINKEDIN</a>
+                <a href="TU_LINK_DE_GITHUB" target="_blank" rel="noopener noreferrer" class="cta-button outline">GITHUB</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dot = document.getElementById('cursor-dot');
+            document.addEventListener('mousemove', (e) => {
+                dot.style.left = e.clientX + 'px';
+                dot.style.top = e.clientY + 'px';
+            });
+
+            const themeBtn = document.getElementById('themeBtn');
+            themeBtn.addEventListener('click', () => {
+                const current = document.body.getAttribute('data-theme');
+                document.body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            setTimeout(() => {
+                document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('active'));
+            }, 150);
+        });
+    </script>
+</body>
+</html>
