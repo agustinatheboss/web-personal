@@ -1,0 +1,13 @@
+Copyright (c) 2026 Agustina Bossero
+
+Todos los derechos reservados.
+
+Queda prohibida la reproducción, distribución, comunicación pública y 
+transformación de la totalidad o parte de los contenidos de este software, 
+en cualquier formato y por cualquier medio técnico, sin la autorización 
+previa y por escrito de la titular de los derechos.
+
+Este código se publica en este repositorio únicamente para su visualización 
+y revisión como parte del portafolio profesional de la autora. Su presencia 
+en un repositorio público de GitHub no implica la concesión de ninguna 
+licencia de uso, copia o modificación para fines comerciales o privados.
